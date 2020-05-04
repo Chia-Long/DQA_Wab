@@ -1,0 +1,6 @@
+﻿ID,Code Name,Processor Name,# of cores,# of threads,Processor Base Frequency(GHz),Max Turbo Frequency(GHz),Cache(MB),TDP(W),User
+C20200114170059495000,Cascade_Lake_SP,8260Y,24,48,2.4,3.9,35.75,165,Admin
+C20200325110719668200,Skylake_SP,8160,24,48,2.1,3.7,33,150,Admin
+C20200325111131938400,Skylake_SP,4114,10,20,2.2,3,13.75,85,Admin
+C20200325111208325400,Broadwell_EP,E5-2620V4,8,16,2.1,3,20,85,Admin
+C20200325111243756400,Cascade_Lake_SP,6226,12,24,2.7,3.7,19.25,125,Admin

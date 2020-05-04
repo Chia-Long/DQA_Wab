@@ -1,0 +1,5 @@
+﻿ID,Vendor,Card Name,Controller,Data Rate Per Port,System Interface Type,User
+L20200401111325764400,Intel,X710-T4L,X710-TM4,10G,"8.0GT/s, x8 lanes",Admin
+L20200427104955367400,Intel,ONBOARD,XL710-AM2,40Gb/10Gb/1Gb,"8.0 GT/s, x8 lanes",Admin
+L20200427152253396600,Advantech,NMC-4005,XL710-BM1,40Gb/10Gb/1Gb,"8.0 GT/s, x8 lanes",Admin
+L20200427152340602200,Advantech,NMC-0806,I350-AM4,1Gb,"5.0 GT/s, x1 lanes",Admin

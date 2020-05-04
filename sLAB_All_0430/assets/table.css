@@ -1,0 +1,47 @@
+/*.dash-header a {
+	color: white;	
+}*/
+/*a: hover {
+	color: rgb(0,86,179) !important;
+}*/
+
+.dash-filter > input {
+	text-align: center !important;
+	border: 2px rgb(178,178,178) solid !important;
+	font-family: Arial !important;
+	font-size: 14 px !important;
+	/*border-collapse: collapse !important;*/
+}
+
+.filter-bar {
+	filter: invert(92%) sepia(1%) saturate(18%) hue-rotate(319deg) brightness(87%) contrast(99%);
+}
+
+.filter-bar:hover {
+	filter: invert(49%) sepia(79%) saturate(4150%) hue-rotate(320deg) brightness(89%) contrast(90%);
+}
+
+/*.gtitle {
+	font-family: monospace !important;
+}*/
+
+
+#cer_radio label:nth-child(1) {
+  color: black;
+  flex: 1;
+}
+
+#cer_radio label:nth-child(2) {
+  color: blue;
+  flex: 1;
+}
+
+#cer_radio label:nth-child(3) {
+  color: green;
+  flex: 1;
+}
+
+#cer_radio label:nth-child(4) {
+  color: gray;
+  flex: 1;
+}

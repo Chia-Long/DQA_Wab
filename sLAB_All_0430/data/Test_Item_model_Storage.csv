@@ -1,0 +1,3 @@
+Test Item,sequential read BandWidth(MB/s),sequential read IOPS(k),sequential read Latency(us),sequential write BandWidth(MB/s),sequential write IOPS(k),sequential write Latency(us),randread BandWidth(MB/s),randread IOPS(k),randread Latency(us),randwrite BandWidth(MB/s),randwrite IOPS(k),randwrite Latency(us)
+4K,,,,,,,,,,,,
+128K,,,,,,,,,,,,

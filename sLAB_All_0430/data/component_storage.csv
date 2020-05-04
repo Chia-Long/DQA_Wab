@@ -1,0 +1,6 @@
+﻿ID,Storage Device Category,Storage Vendor,Storage Model Name,Form Factor,Storage Interface,Storage Capacity,Media / Components,Power Consumption(W),User
+S20200401103917672800,M.2_NVMe_SSD,Intel,SSD_DC_P4610,"2.5"" 7mm",PCIe Gen3 x4,1.6TB,"3D NAND, 64-layer, TLC",Up to 15 Watt,Admin
+S20200401103952866400,M.2_NVMe_SSD,WD,WDS100T2B0B,"2.5"" 7mm",SATA Gen3,1TB,3D NAND SATA SSD,Up to 25 Watt,Admin
+S20200401104017857600,M.2_NVMe_SSD,ADATA,ASU800SS-1TT-C,"2.5"" 7mm",SATA Gen3,1TB,3D TLC,Up to 20 Watt,Admin
+S20200401104335681200,"3.5""_SATA_HDD",Toshiba,DT01ACA100,"3.5"" x 1/3H",SATA Gen3,1TB,SATA,6.4,Admin
+S20200401104406257200,"3.5""_SATA_HDD",Seagate,ST500DM002,"3.5"" x 1/3H",SATA Gen3,500GB,SATA,4.6,Admin
