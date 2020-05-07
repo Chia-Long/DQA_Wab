@@ -85,10 +85,24 @@ def display_frameloss_data(pathname):
         fl_size = df_frameloss.columns[-8:-1]
         fl_size1 = [size.replace("_", " ") for size in fl_size]
         df_frameloss_all.insert(0, 'Frame Size', fl_size1)
+        df_frameloss_all = df_frameloss_all[['Frame Size', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%', 'Throughput']]
+
+        case = df_frameloss.loc[test_id, 'Test_Case_ID']
+        df_db = pd.read_csv("data/DB_Define.csv", index_col="Test_Case_ID")
+        df_obj2 = []
+        for i in df_db.columns[0:8].to_list():
+            zip_obj2 = zip(fl_col, df_db.loc[case, i].split(','))
+            dict_obj2 = dict(zip_obj2)
+            df_obj2.append(dict_obj2)
+        df_db_all = pd.DataFrame(df_obj2)
+        df_db_all.insert(0, 'Frame Size', fl_size1)
+        df_db_all = df_db_all[['Frame Size', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%', 'Throughput']]
 
         return html.Div([
             html.Div(style={'height': '12px'}),
-            generate_table(df_frameloss_all, 'LAN Data')
+            generate_table(df_frameloss_all, 'LAN Data'),
+            html.Br(),
+            generate_table(df_db_all, case)
         ])
         #print(AAA)
     else:
