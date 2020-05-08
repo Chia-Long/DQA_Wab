@@ -60,51 +60,46 @@ layout = html.Div([
     dcc.Interval(id='P3-interval', interval=10000, n_intervals=0),
     #html.H4(children=' '),
     html.Div(style={'height': '12px'}),
-    dcc.Tabs(id="P3-tabs", value='tab-2', children=[
-        dcc.Tab(label='Certification', value='tab-1', style=tab_style, selected_style=tab_selected_style),
-        dcc.Tab(label='Performance', value='tab-2', style=tab_style, selected_style=tab_selected_style),
-        dcc.Tab(label='Compatibility', value='tab-3', style=tab_style, selected_style=tab_selected_style),
-    ]),
-
+    dcc.Location(id='tab-url',refresh=False),
+    html.Div(
+        [
+            dcc.Link(
+                'Certification',
+                href='/apps/certification',
+                className='tab first',
+                id='tab1'
+            ),
+            dcc.Link(
+                'Performance',
+                href='/apps/performance',
+                className='tab',
+                id='tab2'
+            ),
+            dcc.Link(
+                'Compatibility',
+                href='/apps/compatibility',
+                className='tab',
+                id='tab3'
+            ),
+        ],
+        className='row all-tabs'
+    ),
     html.Div(id="P3-tab_content"),
-    #dcc.Location(id='p3-url', refresh=False),
-
-    #dcc.Link('Go to home', href='/')
 ])
 
-#@app.callback(Output("P3-drp1", "options"),
-#              [Input("P3-tabs", "value"),Input('url', 'pathname')],
-#)
-#def update_options(tab,pathname):
-#    if tab == "tab-2":
-#        if pathname == '/apps/WebOutput':
-#            return [{'label': i, 'value': j, 'disabled': True } for i, j in zip(projects, projects_id)]
-#        else:
-#            return [{'label': i, 'value': j} for i, j in zip(projects, projects_id)]
-#    else:
-#        return [{'label': i, 'value': j} for i, j in zip(projects, projects_id)]
-                
-    
 @app.callback(Output("P3-tab_content", "children"),          
-             [Input("P3-tabs", "value")],)
-def render_content(tab):
+             [Input("tab-url", "pathname")],)
+def render_content(pathname):
     """
     For user selections, return the relevant tab
     """
     #print (tab,pathname)
-    if tab == "tab-1":
+    if pathname == '/apps/certification':
         return Certification_Output.layout
-    elif tab == "tab-2":
-        #if pathname == '/apps/WebOutput/CPU_Performance/Integer_Speed(Base)':
-        #    return picperformance.layout    
-        #if pathname == '/apps/WebOutput/CPU_Performance':
-        #    return allperformance.layout    
-        #elif pathname == '/apps/WebOutput/LAN_Performance':
-        #    return lanperformance.layout  
-        #elif pathname == '/apps/WebOutput':
+    elif pathname == '/apps/performance':
         return Performance.layout
-    elif tab == "tab-3":
-        return Compatibility.layout 
+    elif pathname == '/apps/compatibility':
+        return Compatibility.layout
     else:
         return Performance.layout
 

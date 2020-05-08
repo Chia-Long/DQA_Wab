@@ -99,15 +99,6 @@ def display_page(pathname):
         raise PreventUpdate
     elif pathname == '/':
         return WebOutput.layout
-        #return html.Div([
-        #    dcc.Link('Go to Component Page', href='/apps/WebComponent'),
-        #    html.Br(),
-        #    dcc.Link('Go to System Input Page', href='/apps/WebInput'),
-        #    html.Br(),
-        #    dcc.Link('Go to Output Page', href='/apps/WebOutput'),
-        #])
-    #elif pathname == '/apps/WebComponent':
-    #    return WebComponent.layout
     elif pathname == '/apps/Login':
         logout_user()
         return Login.layout
@@ -130,7 +121,7 @@ def display_page(pathname):
     #elif '/apps/WebOutput' in pathname:
     #    return WebOutput.layout
     else: 
-        return 404
+        return WebOutput.layout
         #return 404,['SKY-8101']
 
 

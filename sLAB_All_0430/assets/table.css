@@ -45,3 +45,21 @@
   color: gray;
   flex: 1;
 }
+
+.tab {
+	border-top: 1px solid rgba(214, 214, 214);
+	border-bottom: 1px solid rgba(214, 214, 214);
+	border-radius: 12px 12px 0px 0px;
+	background-color: rgb(243,243,243);
+	color: black;
+	padding: 6px;
+	width: 20%;
+	font-family: Arial;
+	font-weight: bold;
+	text-align: center;
+  }
+
+  .tab:focus {
+	color: white;
+	background-color: rgba(0, 123, 255);
+  }
