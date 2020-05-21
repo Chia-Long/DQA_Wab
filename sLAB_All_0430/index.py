@@ -5,7 +5,7 @@ from dash.exceptions import PreventUpdate
 #import dash
 #import pandas as pd
 #from datetime import datetime
-####
+
 from app import app
 from flask_login import logout_user, current_user
 from apps import WebInput, WebOutput, Systems, LAN_Detail, Login
@@ -29,15 +29,22 @@ app.layout = html.Div([
     dcc.Location(id='p0-url11', refresh=True),
     dcc.Location(id='p0-url12', refresh=True),
     html.A([html.Img(id='p0-logo', src='/assets/Advantech-logo-200P-color.jpg', width='150',
-                     style={'display': 'inline-block', 'margin': '10px 15px', }),
-    ], href='/'),
-    html.A([html.Label('NCG DQA Database', style={'display': 'inline-block',
+                     style={'display': 'inline-block', 'margin': '10px 15px',}),
+    ], href='http://172.17.9.206/'),
+    html.A([html.Label('CIoT DQA Database', style={'display': 'inline-block',
                                           'fontFamily': 'Arial',
                                           'fontSize': '20pt',
                                           'textAlign': 'center',
                                           'verticalAlign': 'middle',
                                           'margin': '0px'}),
     ], href='/'),
+	html.A([html.Label('®', style={'display': 'inline-block',
+                                          'fontFamily': 'Arial',
+                                          'fontSize': '20pt',
+                                          'textAlign': 'center',
+                                          'verticalAlign': 'middle',
+                                          'margin': '0px 0px 0px 0px'}),
+    ], href='http://172.17.9.218:8000/'),
     html.A([html.Img(src='/assets/faq.png', title='User Guide',
                      style={'height': '40px',
                             'width': '40px',
@@ -91,37 +98,48 @@ app.layout = html.Div([
           'backgroundRepeat': 'no-repeat',
           'height': '1080px'})'''
 
-@app.callback(Output('page-content', 'children'),
+@app.callback([Output('page-content', 'children'),Output("P3-tabs", "value")],
               [Input('p0-url1', 'pathname')])
 def display_page(pathname):
     #print(pathname)
     if pathname is None:
         raise PreventUpdate
     elif pathname == '/':
-        return WebOutput.layout
+        return WebOutput.layout, "tab-1"
+        #return html.Div([
+        #    dcc.Link('Go to Component Page', href='/apps/WebComponent'),
+        #    html.Br(),
+        #    dcc.Link('Go to System Input Page', href='/apps/WebInput'),
+        #    html.Br(),
+        #    dcc.Link('Go to Output Page', href='/apps/WebOutput'),
+        #])
+    #elif pathname == '/apps/WebComponent':
+    #    return WebComponent.layout
     elif pathname == '/apps/Login':
         logout_user()
-        return Login.layout
+        return Login.layout, "tab-1"
     elif pathname == '/apps/WebInput':
-        return WebInput.layout
+        return WebInput.layout, "tab-1"
     elif pathname == '/apps/WebOutput':
-        return WebOutput.layout
+        return WebOutput.layout, "tab-1"
     elif pathname == '/apps/WebOutput/CPU_Performance':
-        return WebOutput.layout
+        return WebOutput.layout, "tab-2"
     elif pathname == '/apps/WebOutput/Memory_Performance':
-        return WebOutput.layout
+        return WebOutput.layout, "tab-2"
     elif pathname == '/apps/WebOutput/Storage_Performance':
-        return WebOutput.layout
+        return WebOutput.layout, "tab-2"
     elif pathname == '/apps/WebOutput/LAN_Performance':
-        return WebOutput.layout
+        return WebOutput.layout, "tab-2"
+    elif pathname == '/apps/WebOutput/Certification_Output':
+        return WebOutput.layout, "tab-1"
     elif '/apps/System_Information' in pathname:
-        return Systems.layout
+        return Systems.layout, "tab-1"
     elif '/apps/WebOutput/Frame_Loss' in pathname:
-        return LAN_Detail.layout
+        return LAN_Detail.layout, "tab-1"
     #elif '/apps/WebOutput' in pathname:
     #    return WebOutput.layout
     else: 
-        return WebOutput.layout
+        return 404, "tab-1"
         #return 404,['SKY-8101']
 
 

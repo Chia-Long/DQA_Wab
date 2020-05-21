@@ -1,14 +1,11 @@
 Name,filepath
 D01-1,D01-1_SingleLAN.png
-D01-1-1,D01-1-1.png
 D01-2,D01-2_SingleCPU.png
 D01-3,D01-3_CPU_Portx2.png
 D01-4,D01-4_CPU_Portx4.png
 D01-5,D01-5_SingleLAN_Portx2.png
 D01-6,D01-6_CPUx1_PCIeSwitch.png
 D01-7,D01-7_CPUx1_PCIeSwitch.png
-D01-8,D01-8.png
-D01-9,D01-9.png
 D10-1,D10-1_SingleLAN.png
 D10-2,D10-2_SingleLAN.png
 D10-3,D10-3_SameCPU.png
@@ -16,9 +13,6 @@ D10-4,D10-4_SameCPU.png
 D10-5,D10-5_SameCPU.png
 D10-6,D10-6_PCH_Portx2.png
 D10-7,D10-7_PCH_Portx2.png
-D10-8,D10-8.png
-D10-11,D10-11.png
-D10-12,D10-12.png
 D40-0,D40-0_SinglePort.png
 D40-1,D40-1_SameCPU_2.png
 D40-2,D40-2_CrossCPU_LANx2.png
@@ -26,5 +20,4 @@ D40-3,D40-3_CPU_Portx2.png
 D40-4,D40-4_CrossCPU_LANx8_1.png
 D40-5,D40-5_CrossCPU_LANx8_2.png
 D40-6,D40-6_CrossCPU_LANx2_1.png
-D100-1,D100.png
-D100-2,D100.png
+D100,D100.png

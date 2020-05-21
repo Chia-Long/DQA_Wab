@@ -5,7 +5,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
 import random
-
+import dash_bootstrap_components as dbc
 
 
 #colors = ['E9C46A','F4A261','E76F51','00AEE0','04294F','672A4E','EF476F','FFD166','06D6A0','118AB2','073B4C','264653','2A9D8F','69306D','F2D7EE','D3BCC0']
@@ -29,13 +29,51 @@ data_column_names = []
 Graph_data_list = []
 
 
-app = dash.Dash(__name__)
+#app = dash.Dash(__name__)
+app = dash.Dash(__name__, 
+    meta_tags=[
+        {
+            'charset': 'utf-8',
+        },
+        {
+            'name': 'viewport',
+            'content': 'width=device-width, initial-scale=1, shrink-to-fit=no'
+        }
+    ],
+    external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 app.layout = html.Div([
     html.Div([
-        html.A([html.Img(id='logo',src='/assets/Advantech-logo-200P-color.jpg', width='150',style={'display': 'inline-block'})], href='/'),
-        html.A([html.Label('NCG DQA RMT Database', style={'display': 'inline-block','fontFamily': 'Arial','fontSize': '24pt','textAlign': 'center','verticalAlign': 'top','margin': '0px'}),], href='http://172.17.9.218:8050/apps/login'),
-    ]),
+        html.A([html.Img(id='logo',src='/assets/Advantech-logo-200P-color.jpg', width='150',style={'display': 'inline-block', 'margin': '10px 15px'})], href='http://172.17.9.206/'),
+        html.A([html.Label('CIoT DQA RMT Database', style={'display': 'inline-block','fontFamily': 'Arial','fontSize': '20pt','textAlign': 'center','verticalAlign': 'middle','margin': '0px'}),], href='http://172.17.9.218:8000'),
+		html.A([html.Img(src='/assets/faq.png', title='User Guide',
+						 style={'height': '40px',
+								'width': '40px',
+								'display': 'inline-block',
+								'float': 'right',
+								#'position': 'relative',
+								'marginTop': '10px',
+								'marginRight': '20px'})
+		], href='/assets/NCG_DQA_Database_User_Guide_V01_03-Jan-2020_release.pdf', target='_blank'),
+		html.A([html.Img(src='/assets/server.png', title='Create Data',
+						 style={'height': '40px',
+								'width': '40px',
+								'display': 'inline-block',
+								'float': 'right',
+								#'position': 'relative',
+								'marginTop': '10px',
+								'marginRight': '10px'})
+		], href='http://172.17.9.218:8050/apps/Login', id='login'),
+		html.A([html.Img(src='/assets/output.png', title='View Data',
+						 style={'height': '40px',
+								'width': '40px',
+								'display': 'inline-block',
+								'float': 'right',
+								#'position': 'relative',
+								'marginTop': '10px',
+								'marginRight': '10px'})
+		], href='http://172.17.9.218:8050/apps/WebOutput'),
+    ], style={'marginBottom': '10px'}),
     dcc.Location(id='url', refresh=True),
     dcc.Interval(id='RMT-interval', interval=10000, n_intervals=0),
     dash_table.DataTable(

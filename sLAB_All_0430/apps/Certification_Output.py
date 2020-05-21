@@ -109,7 +109,7 @@ layout = html.Div([
                 {'label': 'Applied', 'value': 'A'},
             ],
             value='all',
-            labelStyle = []
+            labelStyle = {'margin': '0px 0px 8px 8px'},
         ),
     ),
     html.Div(id="P3-Certification_content"),
@@ -155,9 +155,9 @@ def update_output(value,radio):
     if value is None:
         df_c = df_cert.ix[:, column_list]
         
-        print(df_cert)
-        print('========df_c==========')
-        print(df_c)
+        #print(df_cert)
+        #print('========df_c==========')
+        #print(df_c)
         return generate_table(df_c, df_date)
     elif len(value) == 0:
         df_c = df_cert.ix[:, column_list]

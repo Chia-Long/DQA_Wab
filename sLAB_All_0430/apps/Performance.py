@@ -244,7 +244,7 @@ def generate_table(dataframe, title):
             # table-head  
             id='P3-Performance-all',         
             columns=[
-                {'name': [title, c.replace("_", " ")], 'id': c} for c in dataframe.columns
+                {'name': [title, c.replace("_", " ")], 'id': c, 'type': 'text'} for c in dataframe.columns
 			  #{'name': [title, c.replace("_", " ")], 'id': c, "deletable": True, "selectable": True} for c in dataframe.columns
               #{"name": i, "id": i, "deletable": True, "selectable": True} for i in dataframe.columns
             ],
@@ -556,10 +556,10 @@ def update_table(pathname,value):
             df1_c = df1.ix[list(value_f), [-9, 2, 4, 5, 6, -18, -17, -16, -15, -14, -13, -12, -11, 0]]
             
         return html.Div([
-            dcc.Link('[LAN Performance]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Storage Performance]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Memory Performance]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[CPU Performance]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[LAN]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Storage]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Memory]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[CPU]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
             #dcc.Link('回上一頁', href='/apps/WebOutput', style=back_to_previous_link_style),
             html.Div([], style={'clear': 'both'}),
             generate_table(df1_c,'SPEC CPU® 2017'),
@@ -586,10 +586,10 @@ def update_table(pathname,value):
             df2_c = df2.ix[list(value_f), [-3, 2, 7, 8, 12, -6, -5, 0]]
             
         return html.Div([
-            dcc.Link('[LAN Performance]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Storage Performance]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Memory Performance]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[CPU Performance]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[LAN]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Storage]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Memory]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[CPU]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
             #dcc.Link('回上一頁', href='/apps/WebOutput', style=back_to_previous_link_style),
             html.Div([], style={'clear': 'both'}),
             generate_table(df2_c,'Intel® Memory Latency Checker'),
@@ -617,10 +617,10 @@ def update_table(pathname,value):
         #print(type(df3_c))
         #print(df3)
         return html.Div([
-            dcc.Link('[LAN Performance]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Storage Performance]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Memory Performance]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[CPU Performance]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[LAN]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Storage]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Memory]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[CPU]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
             #dcc.Link('回上一頁', href='/apps/WebOutput', style=back_to_previous_link_style),
             html.Div([], style={'clear': 'both'}),
             generate_table(df3_c,'LAN Bandwidth'),
@@ -645,10 +645,10 @@ def update_table(pathname,value):
         #print(df4_c)
 
         return html.Div([
-            dcc.Link('[LAN Performance]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Storage Performance]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Memory Performance]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[CPU Performance]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[LAN]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Storage]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Memory]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[CPU]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
             #dcc.Link('回上一頁', href='/apps/WebOutput', style=back_to_previous_link_style),
             html.Div([], style={'clear': 'both'}),
             generate_table_storage(df4_c),
@@ -661,10 +661,10 @@ def update_table(pathname,value):
         if value is None:
             return html.Div([
                 #html.Div(style={'height': '12px'}),
-                dcc.Link('[LAN Performance]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
-                dcc.Link('[Storage Performance]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
-                dcc.Link('[Memory Performance]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
-                dcc.Link('[CPU Performance]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
+                dcc.Link('[LAN]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
+                dcc.Link('[Storage]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
+                dcc.Link('[Memory]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
+                dcc.Link('[CPU]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
                 #dcc.Link('回上一頁', href='/apps/WebOutput', style=back_to_previous_link_style),
                 html.Div([], style={'clear': 'both'}),
                 generate_summary(df_perf_all_index, 'Performance Summary')
@@ -672,10 +672,10 @@ def update_table(pathname,value):
         elif len(value) == 0:
             return html.Div([
                 #html.Div(style={'height': '12px'}),
-                dcc.Link('[LAN Performance]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
-                dcc.Link('[Storage Performance]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
-                dcc.Link('[Memory Performance]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
-                dcc.Link('[CPU Performance]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
+                dcc.Link('[LAN]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
+                dcc.Link('[Storage]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
+                dcc.Link('[Memory]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
+                dcc.Link('[CPU]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
                 #dcc.Link('回上一頁', href='/apps/WebOutput', style=back_to_previous_link_style),
                 html.Div([], style={'clear': 'both'}),
                 generate_summary(df_perf_all_index, 'Performance Summary')
@@ -691,10 +691,10 @@ def update_table(pathname,value):
             df_perf_all_index_filter = df_perf_all_index.ix[list(value_f), :]
         return html.Div([
             #html.Div(style={'height': '12px'}),
-            dcc.Link('[LAN Performance]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Storage Performance]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[Memory Performance]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
-            dcc.Link('[CPU Performance]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[LAN]', href='/apps/WebOutput/LAN_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Storage]', href='/apps/WebOutput/Storage_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[Memory]', href='/apps/WebOutput/Memory_Performance', style=back_to_previous_link_style, refresh=True),
+            dcc.Link('[CPU]', href='/apps/WebOutput/CPU_Performance', style=back_to_previous_link_style, refresh=True),
             #dcc.Link('回上一頁', href='/apps/WebOutput', style=back_to_previous_link_style),
             html.Div([], style={'clear': 'both'}),
             generate_summary(df_perf_all_index_filter, 'Performance Summary')
